@@ -50,8 +50,14 @@ class FinanControl {
 
     hideLoading() {
         setTimeout(() => {
-            document.getElementById('loadingScreen').style.display = 'none';
-        }, 1000);
+            const loadingScreen = document.getElementById('loadingScreen');
+            if (loadingScreen) {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 300);
+            }
+        }, 500);
     }
 
     setupEventListeners() {
@@ -201,7 +207,6 @@ class FinanControl {
             });
 
             this.renderAccounts();
-            this.updateDashboard();
         } catch (error) {
             console.error('Erro ao carregar contas:', error);
         }
@@ -314,7 +319,6 @@ class FinanControl {
             await this.calculateCardSpending();
             
             this.renderCards();
-            this.updateDashboard();
         } catch (error) {
             console.error('Erro ao carregar cartões:', error);
         }
@@ -601,10 +605,6 @@ class FinanControl {
 
     // ========== DASHBOARD ==========
     async updateDashboard() {
-        await this.loadAccounts();
-        await this.loadCards();
-        await this.loadTransactions();
-
         // Calcular totais
         const totalBalance = this.accounts.reduce((sum, acc) => sum + acc.balance, 0);
         const totalCardBalance = this.cards.reduce((sum, card) => sum + (card.limit - card.currentSpent), 0);
@@ -964,10 +964,19 @@ class FinanControl {
 
     // ========== CARREGAMENTO INICIAL ==========
     async loadData() {
-        await this.loadAccounts();
-        await this.loadCards();
-        await this.loadTransactions();
-        await this.updateDashboard();
+        try {
+            // Carregar tudo em paralelo para ser mais rápido
+            await Promise.all([
+                this.loadAccounts(),
+                this.loadCards(),
+                this.loadTransactions()
+            ]);
+            
+            // Só depois de tudo carregado, atualiza o dashboard
+            this.updateDashboard();
+        } catch (error) {
+            console.error('Erro ao carregar dados:', error);
+        }
     }
 
     // ========== UTILITÁRIOS ==========

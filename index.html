@@ -53,7 +53,7 @@
 </head>
 <body class="bg-gray-50">
     <!-- Loading Screen -->
-    <div id="loadingScreen" class="fixed inset-0 bg-indigo-600 flex items-center justify-center z-50">
+    <div id="loadingScreen" class="fixed inset-0 bg-indigo-600 flex items-center justify-center z-50 transition-opacity duration-300">
         <div class="text-center text-white">
             <i class="fas fa-chart-line text-6xl mb-4 animate-pulse"></i>
             <h1 class="text-3xl font-bold">FinanControl</h1>
@@ -327,7 +327,7 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Cor</label>
-                        <input type="color" id="accountColor" value="#4F46E5" class="w-full h-10 border border-gray-300 rounded-lg">
+                        <input type="color" id="accountColor" value="#4F46E5" class="w-20 h-10 border border-gray-300 rounded-lg cursor-pointer">
                     </div>
                 </div>
                 <div class="flex space-x-3 mt-6">
@@ -377,7 +377,7 @@
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-gray-700 mb-1">Cor</label>
-                        <input type="color" id="cardColor" value="#EF4444" class="w-full h-10 border border-gray-300 rounded-lg">
+                        <input type="color" id="cardColor" value="#EF4444" class="w-20 h-10 border border-gray-300 rounded-lg cursor-pointer">
                     </div>
                 </div>
                 <div class="flex space-x-3 mt-6">
