@@ -147,6 +147,8 @@ class AuthManager {
             if (result.success) {
                 messageEl.className = 'mt-4 text-center text-sm text-green-600';
                 messageEl.textContent = 'Login realizado com sucesso!';
+                // Recarregar após login bem-sucedido
+                setTimeout(() => window.location.reload(), 1000);
             } else {
                 messageEl.className = 'mt-4 text-center text-sm text-red-600';
                 messageEl.textContent = 'Erro ao fazer login. Verifique suas credenciais.';
@@ -172,6 +174,8 @@ class AuthManager {
             if (result.success) {
                 messageEl.className = 'mt-4 text-center text-sm text-green-600';
                 messageEl.textContent = 'Conta criada com sucesso!';
+                // Recarregar após registro bem-sucedido
+                setTimeout(() => window.location.reload(), 1000);
             } else {
                 messageEl.className = 'mt-4 text-center text-sm text-red-600';
                 messageEl.textContent = 'Erro ao criar conta. Tente novamente.';
