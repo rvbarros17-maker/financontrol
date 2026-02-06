@@ -1,18 +1,17 @@
 // Firebase Configuration
-// TODO: Adicionar suas credenciais do Firebase aqui
-
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
 import { getAuth } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
 
-// TODO: Substituir com suas credenciais do Firebase
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "SUA_API_KEY_AQUI",
-    authDomain: "seu-projeto.firebaseapp.com",
-    projectId: "seu-projeto-id",
-    storageBucket: "seu-projeto.appspot.com",
-    messagingSenderId: "123456789",
-    appId: "sua-app-id"
+  apiKey: "AIzaSyBvyzbkbuWZIJknTBfM-OQi_NzfHcuKY5Q",
+  authDomain: "financontrol-16ae8.firebaseapp.com",
+  projectId: "financontrol-16ae8",
+  storageBucket: "financontrol-16ae8.firebasestorage.app",
+  messagingSenderId: "348930920581",
+  appId: "1:348930920581:web:19654dee67c930bbdb99ec",
+  measurementId: "G-DN6G7V7B04"
 };
 
 // Initialize Firebase
